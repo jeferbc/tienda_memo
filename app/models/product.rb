@@ -21,6 +21,7 @@
 class Product < ApplicationRecord
   #associations
   belongs_to :category
+  has_many :purchases, dependent: :destroy
   #paperclip
   has_attached_file :image, styles: { microthumb: "50x50>", thumb: "242x200>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
