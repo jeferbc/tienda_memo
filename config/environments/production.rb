@@ -95,4 +95,14 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+  #Sendgrind configuration
+  ActionMailer::Base.smtp_settings = {
+  :user_name => ENV['SENDGRIND_USERNAME'],
+  :password => ENV['SENDGRIND_PASSWORD'],
+  :domain => 'http://tienda-jeff.herokuapp.com/',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 end
